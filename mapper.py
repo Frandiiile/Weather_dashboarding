@@ -13,4 +13,4 @@ for line in sys.stdin:
             # Handle lines with invalid data (e.g., non-numeric temperature)
             continue
     # Emit the key-value pair with the 'DATE' as the key and the rest as the value
-    print(date + "\t" + str(temp) + "," + str(press) + "," + str(wind_speed))
+    print(date + "," + str(temp) + "," + str(press) + "," + str(wind_speed))
