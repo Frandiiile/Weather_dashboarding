@@ -41,7 +41,7 @@ data = {
     "WIND_SPEED": winds
 }
 df = pd.DataFrame(data)
-condition1 = (df['TEMP'] == 99.9)
+condition1 = (df['TEMP'] > 99.9)
 df.loc[condition1, "TEMP"] = None
 condition2 = (df['PRESS'] == 9999.9)
 df.loc[condition2, "PRESS"] = None
@@ -49,3 +49,5 @@ condition3 = (df['WIND_SPEED'] == 999.9)
 df.loc[condition3, "WIND_SPEED"] = None
 df.dropna(inplace=True)
 df.reset_index(drop=True, inplace=True)
+print(df.tail(10))
+df.to_csv('data.csv', index=False)
