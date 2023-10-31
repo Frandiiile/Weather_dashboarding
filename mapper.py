@@ -4,10 +4,13 @@ import sys
 
 # Input comes from the standard input (stdin)
 for line in sys.stdin:
-    # Split the line into columns, assuming a CSV format
+    # Split the line into key and value
     columns = line.strip().split(',')
-
-    if len(columns) == 4:
+    try:
+    # Split the values into temp, press, wind_speed, and count
         date, temp, press, wind_speed = columns[0], float(columns[1]), float(columns[2]), float(columns[3])
-        # Emit the 'DATE' as the key and a tuple of (temp, press, wind_speed, count) as the value
-        print(f"{date}\t{temp},{press},{wind_speed},1")
+    except ValueError:
+            # Handle lines with invalid data (e.g., non-numeric temperature)
+            continue
+    # Emit the key-value pair with the 'DATE' as the key and the rest as the value
+    print(date + "\t" + str(temp) + "," + str(press) + "," + str(wind_speed))
