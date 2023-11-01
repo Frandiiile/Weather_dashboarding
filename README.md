@@ -40,7 +40,7 @@ We use Apache Airflow to orchestrate and schedule data workflows in this project
 
 Our Apache Airflow setup includes a Directed Acyclic Graph (DAG) that defines the sequence of tasks for this project. The DAG includes tasks for data download, data processing using MapReduce, data analysis, and other relevant steps. Airflow ensures that these tasks run in a coordinated and controlled manner.
 
-```shell
+`
 - `dags/`                  # Store Apache Airflow DAG configuration files
   - `weather_analysis_dag.py`  # Defines the DAG for this project
 
